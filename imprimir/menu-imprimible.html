@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Menú imprimible · Territorio Lokos Street</title>
+<link rel="stylesheet" href="../assets/css/styles.css">
+<style>
+  @page { size: 8.5in 11in; margin: 0; }
+  html, body { margin: 0; background: #ddd; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @media print { body { background: none; } .page { margin: 0 !important; box-shadow: none !important; } }
+  .page { width: 8.5in; height: 11in; margin: 20px auto; background: #fff; position: relative; overflow: hidden; break-after: page; box-shadow: 0 4px 30px rgba(0,0,0,.2); padding: 30px 40px 0; }
+  .page:last-child { break-after: auto; }
+  .page .splash { position: absolute; z-index: 0; }
+  .page > * { position: relative; z-index: 1; }
+  .page > .splash { position: absolute; z-index: 0; }
+
+  /* header / footer */
+  .ph-head { display: flex; align-items: center; justify-content: space-between; height: 64px; border-bottom: 2px solid #F1ECF8; margin-bottom: 10px; }
+  .ph-head img { height: 52px; }
+  .ph-head .hand { font-size: 15px; transform: rotate(-3deg); color: var(--ink); }
+  .ph-foot { position: absolute !important; left: 40px; right: 40px; bottom: 18px; display: flex; justify-content: space-between; align-items: center; font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-top: 2px solid #F1ECF8; padding-top: 9px; }
+  .ph-foot img { height: 16px; }
+  .ph-foot .pg { font-family: var(--display); font-size: 14px; color: var(--pink); letter-spacing: 0; }
+
+  /* section */
+  .sec { margin-bottom: 18px; }
+  .sec-title { display: flex; align-items: center; gap: 12px; margin: 4px 0 2px; }
+  .sec-title h2 { margin: 0; font-size: 36px; }
+  .sec-title .brush::before { inset: -4px -10px; }
+  .sec-tag { font-size: 9.5px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .sec-note { font-size: 10.5px; font-weight: 700; background: var(--soft); border-radius: 10px; padding: 7px 12px; margin: -2px 0 10px; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+  .row { display: grid; grid-template-columns: 66px 1fr auto; gap: 10px; align-items: center; min-height: 68px; padding: 3px 10px 3px 3px; border-radius: 14px; background: #FBF9FE; }
+  .row .im { width: 66px; height: 66px; border-radius: 12px; background: radial-gradient(circle at 50% 55%, #fff 0, var(--soft) 72%); display: grid; place-items: center; }
+  .row .im img { max-width: 60px; max-height: 60px; object-fit: contain; filter: drop-shadow(0 3px 3px rgba(0,0,0,.2)); }
+  .row .im svg { width: 30px; height: 30px; color: var(--c); }
+  .row h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: 16.5px; line-height: 1.02; text-transform: uppercase; }
+  .row p { margin: 3px 0 0; font-size: 9.6px; line-height: 1.35; color: var(--muted); }
+  .row .pr { font-family: var(--display); font-size: 23px; color: var(--pink); white-space: nowrap; align-self: center; }
+  .row .opts-p { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 3px 10px; font-size: 9.6px; font-weight: 700; }
+  .row .opts-p b { font-family: var(--display); font-weight: 400; color: var(--pink); font-size: 12.5px; }
+  .row.wide { grid-column: 1 / -1; }
+  .grid.g3 { grid-template-columns: repeat(3, 1fr); gap: 7px 10px; }
+  .g3 .row { grid-template-columns: 66px 1fr auto; gap: 8px; min-height: 80px; padding-right: 8px; }
+  .g3 .row .im { width: 66px; height: 70px; }
+  .g3 .row .im img { max-width: 60px; max-height: 66px; }
+  .g3 .row h3 { font-size: 15px; }
+  .g3 .row p { font-size: 9.4px; }
+  .g3 .row .pr { font-size: 19px; }
+  .hot { display: inline-block; vertical-align: 2px; margin-left: 6px; background: var(--red); color: #fff; font-family: var(--body); font-weight: 900; font-size: 7px; letter-spacing: .1em; padding: 2px 6px; border-radius: 999px; }
+
+  /* arma tus fresas */
+  .arma { display: grid; grid-template-columns: 1.05fr 1fr; gap: 14px; }
+  .box { background: #FBF9FE; border-radius: 14px; padding: 12px 14px; }
+  .box h4 { margin: 0 0 6px; font-family: var(--display); font-weight: 400; font-size: 17px; text-transform: uppercase; }
+  .sizes { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; font-weight: 700; font-size: 11.5px; }
+  .sizes span { display: flex; justify-content: space-between; border-bottom: 1px dashed #E5DDF0; padding: 3px 0; }
+  .sizes b { font-family: var(--display); font-weight: 400; color: var(--pink); font-size: 15px; }
+  .pills-p { font-size: 10.2px; font-weight: 700; line-height: 1.6; color: var(--ink); }
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 4px; }
+  .tiers div { text-align: center; }
+  .tiers .tp { font-family: var(--display); color: var(--pink); font-size: 18px; }
+  .tiers .ti { display: flex; justify-content: center; gap: 2px; height: 46px; margin: 4px 0; }
+  .tiers .ti img { height: 46px; width: auto; max-width: 64px; object-fit: contain; }
+  .tiers .tn { font-size: 8.8px; font-weight: 700; color: var(--muted); line-height: 1.3; }
+
+  /* cover */
+  .cover { padding: 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .cover .logo { width: 540px; margin-top: 110px; filter: drop-shadow(0 14px 18px rgba(30,0,60,.3)); }
+  .cover .tag { font-family: var(--hand); font-size: 30px; text-transform: uppercase; line-height: 1.1; margin: 12px 0 0; transform: rotate(-3deg); }
+  .cover h1 { margin: 18px 0 0; font-size: 92px; }
+  .cover .cats { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; width: 620px; margin-top: 18px; }
+  .cover .cats span { padding: 6px 14px; border-radius: 999px; background: var(--c); color: #fff; font-weight: 900; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+  .cover .cats .c-yellow { color: var(--ink); }
+  .cover .prods { position: absolute; bottom: 64px; left: 30px; right: 30px; display: grid; grid-template-columns: repeat(5, 1fr); align-items: end; }
+  .cover .prods img { width: 100%; max-height: 190px; object-fit: contain; object-position: bottom; filter: drop-shadow(0 10px 10px rgba(0,0,0,.25)); }
+  .cover .band { position: absolute; left: 0; right: 0; bottom: 0; height: 84px; background: var(--purple); color: #fff; display: flex; align-items: center; justify-content: center; gap: 40px; font-family: var(--display); text-transform: uppercase; font-size: 17px; }
+  .cover .band span { display: flex; align-items: center; gap: 8px; }
+  .cover .band svg { width: 24px; height: 24px; }
+  .closing { margin-top: 10px; text-align: center; }
+  .closing h3 { margin: 0; font-size: 30px; }
+  .closing p { margin: 6px 0 0; font-weight: 700; font-size: 11.5px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div id="doc"></div>
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/site.js"></script>
+<script>
+(function () {
+  const L = window.LOKOS, M = window.LOKOS_MENU, I = L.ICONS;
+  const IMG = id => '../' + L.img(id);
+  const cat = id => M.find(c => c.id === id);
+  const PAGES = [['tradicional', 'elotes'], ['compartir', 'chilito'], ['frappes', 'premium'], ['frutales', 'arma'], ['fresas', 'infantil']];
+  const SPL = [['pink', 'yellow'], ['purple', 'blue'], ['blue', 'pink'], ['yellow', 'purple'], ['red', 'blue']];
+  const total = PAGES.length + 1;
+
+  const row = (it, c) => `<div class="row c-${c.color}">
+      <div class="im">${L.hasPhoto(it.id) ? `<img src="${IMG(it.id)}" alt="">` : I[L.CAT_ICON[c.id]]}</div>
+      <div><h3>${L.esc(it.name)}${it.hot ? '<span class="hot">FAVORITO</span>' : ''}</h3><p>${L.esc(it.desc)}</p>
+        ${it.options ? `<div class="opts-p">${it.options.map(o => `<span>${L.esc(o.label)} <b>$${o.price}</b></span>`).join('')}</div>` : ''}</div>
+      ${it.options ? '' : `<div class="pr">$${it.price}</div>`}
+    </div>`;
+  const arma = c => {
+    const it = c.items[0], x = c.extras;
+    return `<div class="arma">
+      <div>${row({ ...it, options: null, price: null }, c).replace('<div class="pr">$null</div>', '')}
+        <div class="box" style="margin-top:8px"><h4>Elige tu tamaño</h4><div class="sizes">${it.options.map(o => `<span>${L.esc(o.label)} <b>$${o.price}</b></span>`).join('')}</div></div></div>
+      <div class="box"><h4>Toppings</h4><div class="pills-p">${x.toppings.join(' · ')}</div>
+        <h4 style="margin-top:8px">Jarabes</h4><div class="pills-p">${x.jarabes.join(' · ')}</div>
+        <h4 style="margin-top:8px">Toppings premium</h4>
+        <div class="tiers">${x.premium.map(t => `<div><div class="tp">${t.price}</div><div class="ti">${t.imgs.map(i => `<img src="${IMG(i)}" alt="">`).join('')}</div><div class="tn">${t.items.join(' · ')}</div></div>`).join('')}</div></div>
+    </div>`;
+  };
+  const section = id => {
+    const c = cat(id);
+    return `<div class="sec c-${c.color}">
+      <div class="sec-title"><h2 class="display"><span class="brush b${(c.id.length % 3) + 1}">${L.esc(c.name)}</span></h2></div>
+      <p class="sec-tag">${L.esc(c.tagline)}</p>
+      ${c.note ? `<div class="sec-note">${L.esc(c.note)}</div>` : ''}
+      ${c.extras ? arma(c) : `<div class="grid${['frappes', 'premium', 'frutales', 'infantil'].includes(c.id) ? ' g3' : ''}">${c.items.map(it => row(it, c)).join('')}</div>`}
+    </div>`;
+  };
+  const foot = n => `<div class="ph-foot"><span>Territorio Lokos Street · Precios en MXN</span><span class="easytap">Prototipo por <img src="../assets/img/easytap-dark.webp" alt="Easy Tap"></span><span class="pg">${n} / ${total}</span></div>`;
+  const splash = (col, k) => `<img class="splash" src="../assets/img/deco/splash-${col}-${k}.svg" alt="">`;
+
+  let html = `<section class="page cover">
+    <img class="splash" src="../assets/img/deco/splash-purple-1.svg" style="width:430px;left:120px;top:90px;transform:rotate(-20deg)" alt="">
+    <img class="splash" src="../assets/img/deco/splash-pink-1.svg" style="width:380px;left:330px;top:40px;transform:rotate(30deg)" alt="">
+    <img class="splash" src="../assets/img/deco/splash-yellow-1.svg" style="width:360px;left:380px;top:250px;transform:rotate(-45deg)" alt="">
+    <img class="splash" src="../assets/img/deco/splash-blue-1.svg" style="width:300px;left:90px;top:280px;transform:rotate(60deg)" alt="">
+    <img class="splash" src="../assets/img/deco/splash-yellow-2.svg" style="width:200px;right:-60px;top:-50px" alt="">
+    <img class="splash" src="../assets/img/deco/splash-pink-2.svg" style="width:180px;left:-60px;top:-40px" alt="">
+    <img class="logo" src="../assets/img/logo.png" alt="Territorio Lokos Street">
+    <p class="tag">Antojos que sí se disfrutan en la calle</p>
+    <h1 class="display"><span class="brush c-pink">Menú</span></h1>
+    <div class="cats">${M.map(c => `<span class="c-${c.color}">${L.esc(c.short)}</span>`).join('')}</div>
+    <div class="prods">${['frappe-oreo', 'elote-cheetos', 'atrevido', 'mango-mix', 'bowl-fresas'].map(id => `<img src="${IMG(id)}" alt="">`).join('')}</div>
+    <div class="band"><span>${I.cup}Bebidas únicas</span><span>${I.corn}Antojitos irresistibles</span><span>${I.flame}Sabores que enamoran</span><span>${I.heart}Buen ambiente</span></div>
+  </section>`;
+  PAGES.forEach((ids, k) => {
+    const [a, b] = SPL[k];
+    html += `<section class="page">
+      <img class="splash" src="../assets/img/deco/splash-${a}-2.svg" style="width:170px;right:-70px;top:-60px;opacity:.9" alt="">
+      <img class="splash" src="../assets/img/deco/splash-${b}-1.svg" style="width:150px;left:-80px;bottom:120px;opacity:.5" alt="">
+      <div class="ph-head"><img src="../assets/img/logo.png" alt="Territorio Lokos Street"><span class="hand">Sabores locos para gente chida</span></div>
+      ${ids.map(section).join('')}
+      ${k === PAGES.length - 1 ? `<div class="closing"><h3 class="display"><span class="brush c-purple b2">¡Gracias por tu visita!</span></h3><p>Síguenos en Facebook y déjanos tu reseña en Google Maps.</p></div>` : ''}
+      ${foot(k + 2)}
+    </section>`;
+  });
+  document.getElementById('doc').innerHTML = html;
+})();
+</script>
+</body>
+</html>
