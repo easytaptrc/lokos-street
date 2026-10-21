@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menú · Territorio Lokos Street</title>
+  <meta name="description" content="Menú completo de Territorio Lokos Street: elotes especiales, antojos con chilito, frappés, fresas con crema y más.">
+  <meta name="theme-color" content="#7B2FF7">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Territorio Lokos Street, inicio"><img src="assets/img/logo.webp" alt="Territorio Lokos Street"></a>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="menu.html" aria-current="page">Menú</a></li>
+          <li><a href="index.html#resenas">Reseñas</a></li>
+          <li><a href="index.html#ubicacion">Ubicación</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="social">
+        <a class="icon-btn fb" data-link="facebook" target="_blank" rel="noopener" aria-label="Facebook" data-icon="facebook"></a>
+        <a class="icon-btn" data-link="maps" target="_blank" rel="noopener" aria-label="Ver en Google Maps" data-icon="pin"></a>
+      </div>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" data-icon="menu"></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="menu-hero">
+      <img class="splash" src="assets/img/deco/splash-pink-2.svg" alt="" style="width:240px;left:-70px;top:-30px">
+      <img class="splash" src="assets/img/deco/splash-yellow-1.svg" alt="" style="width:260px;right:-80px;top:-60px">
+      <img class="splash" src="assets/img/deco/splash-blue-2.svg" alt="" style="width:160px;right:12%;top:120px;opacity:.6">
+      <div class="container">
+        <h1 class="display"><span class="crown-doodle" data-icon="crown"></span><span class="brush c-purple b2">Nuestro menú</span></h1>
+        <p>Elige tu antojo favorito</p>
+        <a class="btn btn-yellow pdf-btn" href="Menu_Territorio_Lokos_Street.pdf" download><span data-icon="arrow" style="transform:rotate(90deg)"></span>Descargar menú en PDF</a>
+      </div>
+    </section>
+
+    <section class="menu-cats">
+      <div class="container"><div class="cat-grid" id="cats"></div></div>
+    </section>
+
+    <div class="chips-bar">
+      <div class="container">
+        <div class="chips" id="chips" role="tablist" aria-label="Categorías"></div>
+        <label class="search"><span class="sr-only">Buscar en el menú</span><span data-icon="search"></span><input id="q" type="search" placeholder="Buscar antojo…" autocomplete="off"></label>
+      </div>
+    </div>
+
+    <div class="container" id="sections"></div>
+    <p class="empty-search container" id="empty">No encontramos ese antojo. Prueba con otra palabra.</p>
+    <div style="height:80px"></div>
+  </main>
+
+  <footer class="site-footer">
+    <img class="splash" src="assets/img/deco/splash-purple-1.svg" alt="" style="width:340px;right:-120px;top:-120px;opacity:.35">
+    <div class="container">
+      <div class="cols">
+        <img class="logo" src="assets/img/logo.webp" alt="Territorio Lokos Street">
+        <nav aria-label="Pie de página"><a href="index.html">Inicio</a><a href="menu.html">Menú</a><a href="index.html#resenas">Reseñas</a><a href="index.html#ubicacion">Ubicación</a><a href="index.html#contacto">Contacto</a></nav>
+        <div class="social" style="display:flex;gap:10px">
+          <a class="icon-btn fb" data-link="facebook" target="_blank" rel="noopener" aria-label="Facebook" data-icon="facebook"></a>
+          <a class="icon-btn" data-link="maps" target="_blank" rel="noopener" aria-label="Google Maps" data-icon="pin"></a>
+        </div>
+      </div>
+      <div class="legal">
+        <span>Precios en pesos mexicanos (MXN). Sujetos a cambio sin previo aviso.</span>
+        <span class="easytap">Prototipo desarrollado por <img src="assets/img/easytap-light.webp" alt="Easy Tap"></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mi pedido -->
+  <button class="cart-fab" id="fab" aria-label="Ver mi pedido"><span data-icon="bag"></span><span class="n" id="fab-n">0</span><span>Mi pedido</span><span class="t" id="fab-t">$0</span></button>
+  <div class="drawer-bg" id="bg"></div>
+  <aside class="drawer" id="drawer" aria-label="Mi pedido" aria-hidden="true">
+    <header><h3>Mi pedido</h3><button class="icon-btn" id="close" aria-label="Cerrar" data-icon="close"></button></header>
+    <div class="lines" id="lines"></div>
+    <footer>
+      <div class="total"><span>Total</span><b id="total">$0</b></div>
+      <p class="hint">Muestra esta lista al hacer tu pedido en caja. Los precios están en MXN.</p>
+      <button class="link-btn" id="clear">Vaciar pedido</button>
+    </footer>
+  </aside>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/menu.js"></script>
+</body>
+</html>
