@@ -4,8 +4,6 @@ Sitio estático: no necesita servidor ni instalación.
 
 - `index.html` — página de inicio
 - `menu.html` — menú completo con buscador y "Mi pedido"
-- `Menu_Territorio_Lokos_Street.pdf` — menú para imprimir (también se descarga desde la web)
-- `imprimir/menu-imprimible.html` — fuente del PDF (ábrelo en Chrome y usa Imprimir → Guardar como PDF, tamaño carta, sin márgenes)
 - `assets/js/data.js` — **aquí se editan precios, descripciones y datos de contacto** (dirección, horario, teléfono, WhatsApp, Facebook, Maps)
 
 ## Publicar con GitHub Pages
