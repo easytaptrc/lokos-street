@@ -24,6 +24,7 @@
       </nav>
       <div class="social">
         <a class="icon-btn fb" data-link="facebook" target="_blank" rel="noopener" aria-label="Facebook" data-icon="facebook"></a>
+        <a class="icon-btn ig" data-link="instagram" target="_blank" rel="noopener" aria-label="Instagram" data-icon="instagram"></a>
         <a class="icon-btn" data-link="maps" target="_blank" rel="noopener" aria-label="Ver en Google Maps" data-icon="pin"></a>
       </div>
       <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" data-icon="menu"></button>
@@ -128,10 +129,11 @@
           <div class="info-card c-purple reveal">
             <div class="ic" data-icon="chat"></div>
             <h3>Contacto</h3>
-            <p id="cfg-contacto">Escríbenos por Facebook para pedidos y eventos.</p>
-            <a class="btn btn-purple" id="cfg-contacto-btn" data-link="facebook" target="_blank" rel="noopener">Escríbenos<span data-icon="arrow"></span></a>
+            <p id="cfg-contacto">Escríbenos por Facebook o Instagram para pedidos y eventos.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:auto"><a class="btn btn-purple" id="cfg-contacto-btn" data-link="facebook" target="_blank" rel="noopener" style="margin-top:0">Facebook<span data-icon="arrow"></span></a><a class="btn btn-pink" data-link="instagram" target="_blank" rel="noopener" style="margin-top:0">Instagram<span data-icon="arrow"></span></a></div>
           </div>
         </div>
+        <div class="map-wrap reveal" id="mapa" hidden><iframe title="Mapa de Territorio Lokos Street" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
       </div>
     </section>
   </main>
@@ -144,6 +146,7 @@
         <nav aria-label="Pie de página"><a href="index.html">Inicio</a><a href="menu.html">Menú</a><a href="#resenas">Reseñas</a><a href="#ubicacion">Ubicación</a><a href="#contacto">Contacto</a></nav>
         <div class="social" style="display:flex;gap:10px">
           <a class="icon-btn fb" data-link="facebook" target="_blank" rel="noopener" aria-label="Facebook" data-icon="facebook"></a>
+          <a class="icon-btn ig" data-link="instagram" target="_blank" rel="noopener" aria-label="Instagram" data-icon="instagram"></a>
           <a class="icon-btn" data-link="maps" target="_blank" rel="noopener" aria-label="Google Maps" data-icon="pin"></a>
         </div>
       </div>
@@ -171,7 +174,11 @@
         </a>`).join('');
       document.getElementById('cats').innerHTML = M.map(c => L.categoryCard(c, `menu.html#${c.id}`)).join('');
       document.getElementById('year').textContent = new Date().getFullYear();
-      if (cfg.direccion) document.getElementById('cfg-direccion').textContent = cfg.direccion;
+      if (cfg.direccion) {
+        document.getElementById('cfg-direccion').textContent = cfg.direccion;
+        const map = document.getElementById('mapa'); map.hidden = false;
+        map.querySelector('iframe').src = 'https://maps.google.com/maps?q=' + encodeURIComponent(cfg.direccion) + '&z=16&output=embed';
+      }
       if (cfg.horario) document.getElementById('cfg-horario').textContent = cfg.horario;
       if (cfg.whatsapp) {
         document.getElementById('cfg-contacto').textContent = 'Escríbenos por WhatsApp' + (cfg.telefono ? ' al ' + cfg.telefono : '') + ' para pedidos y eventos.';
