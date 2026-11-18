@@ -3,12 +3,13 @@
 
 window.LOKOS_CONFIG = {
   // Datos del negocio. Si un campo queda vacío, la web no lo muestra.
-  direccion: '',            // ej. 'Av. Siempre Viva 123, Col. Centro'
+  direccion: 'Av. Bravo 7083, Col. Villa Florencia, 27054 Torreón, Coah.',
   horario: '',              // ej. 'Lunes a domingo · 5:00 pm a 11:00 pm'
   telefono: '',             // ej. '+52 55 1234 5678'
   whatsapp: '',             // solo números con lada, ej. '5215512345678'
-  facebook: 'https://www.facebook.com/search/top?q=Territorio%20Lokos%20Street',
-  maps: 'https://www.google.com/maps/search/?api=1&query=Territorio%20Lokos%20Street',
+  facebook: 'https://www.facebook.com/share/19jk4nKSSC/',
+  instagram: 'https://www.instagram.com/territorio.lokos.street/',
+  maps: 'https://www.google.com/maps/search/?api=1&query=Territorio%20Lokos%20Street%2C%20Av.%20Bravo%207083%2C%20Villa%20Florencia%2C%2027054%20Torre%C3%B3n%2C%20Coah.',
 };
 
 window.LOKOS_MENU = [

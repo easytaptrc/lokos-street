@@ -11,6 +11,7 @@
     heart: S('<path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/>'),
     strawberry: S('<path d="M12 7.5c4 0 7 2 7 5.8 0 4.2-4.2 8.7-7 8.7s-7-4.5-7-8.7c0-3.8 3-5.8 7-5.8zM8.5 4.5 12 7.5l3.5-3M12 2v5.5M9.5 12.5h.01M14.5 12.5h.01M12 16h.01M9.8 18.5h.01M14.2 18.5h.01"/>'),
     facebook: FILL('<path d="M14 8.2h3V4.1h-3.2C10.8 4.1 9.4 6 9.4 8.8V11H7v4h2.4v7h4.1v-7h3l.5-4h-3.5V9c0-.5.3-.8.5-.8z"/>'),
+    instagram: S('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".6" fill="currentColor"/>'),
     pin: '<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 1.8a7.2 7.2 0 0 0-7.2 7.2c0 5.3 7.2 13.2 7.2 13.2s7.2-7.9 7.2-13.2A7.2 7.2 0 0 0 12 1.8z"/><circle cx="12" cy="9" r="2.7" fill="#fff"/></svg>',
     pinLine: S('<path d="M12 22s7-7.4 7-12.6a7 7 0 0 0-14 0C5 14.6 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.5"/>'),
     bag: S('<path d="M5 8h14l-1 13H6zM9 8V6a3 3 0 0 1 6 0v2"/>'),
@@ -44,8 +45,7 @@
     if (t) t.addEventListener('click', () => { const o = ul.classList.toggle('open'); t.setAttribute('aria-expanded', o); });
     ul && ul.querySelectorAll('a').forEach(a => a.addEventListener('click', () => ul.classList.remove('open')));
     const cfg = window.LOKOS_CONFIG || {};
-    document.querySelectorAll('[data-link="facebook"]').forEach(a => { a.href = cfg.facebook || '#'; });
-    document.querySelectorAll('[data-link="maps"]').forEach(a => { a.href = cfg.maps || '#'; });
+    document.querySelectorAll('[data-link]').forEach(a => { const url = cfg[a.dataset.link]; if (url) a.href = url; else a.hidden = true; });
   }
   function reveal() {
     const els = [...document.querySelectorAll('.reveal:not(.in)')];
